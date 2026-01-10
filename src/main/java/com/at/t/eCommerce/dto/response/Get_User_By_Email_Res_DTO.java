@@ -1,23 +1,23 @@
 package com.at.t.eCommerce.dto.response;
 
-import java.util.List;
+import java.util.UUID;
 
-import com.at.t.eCommerce.model.AddressModel;
+import com.at.t.eCommerce.enums.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Update_User_Res_DTO {
-
+public class Get_User_By_Email_Res_DTO {
+	
+	private UUID id;
+	private String name;
 	private String email;
-	private String fullName;
-	private String phone;
-	private List<AddressResDTO> addresses;
+    private Role role;
 
 }

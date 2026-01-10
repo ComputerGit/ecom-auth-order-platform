@@ -1,8 +1,5 @@
 package com.at.t.eCommerce.dto.request;
 
-import java.util.List;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,13 +9,8 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Update_User_Req_DTO {
-
-	private String email;
-	private String fullName;
-	private String phone;
-	private List<AddressReqDTO> addresses;
+public class Get_User_By_Email_Req_DTO {
 	
-	
+    private String email;
 
 }

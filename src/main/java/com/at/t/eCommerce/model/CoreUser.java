@@ -37,19 +37,21 @@ import lombok.*;
 
 public class CoreUser {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+	@Id
+	@GeneratedValue
+	@org.hibernate.annotations.UuidGenerator
+	@Column(columnDefinition = "uuid", updatable = false, nullable = false)
     @EqualsAndHashCode.Include
     private UUID id;
 
     @NotBlank
     @Email
-    @Column(nullable = false, unique = true, updatable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     private boolean emailVerified;
 
-    @Column(nullable = false, unique = true, updatable = false)
+    @Column(nullable = false, unique = true) 
     @Pattern(regexp = "^\\+?[0-9. ()-]{7,25}$", message = "Phone number is invalid")
     private String phone;
 

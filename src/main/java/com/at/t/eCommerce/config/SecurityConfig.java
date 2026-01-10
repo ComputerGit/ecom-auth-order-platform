@@ -18,7 +18,6 @@ import com.at.t.eCommerce.auth.JwtAuthenticationFilter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	
 
 	private final UserDetailsService userDetailsService;
 	private final JwtAuthenticationFilter jwtFilter;
@@ -48,17 +47,17 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable()) // Explicitly disabling CSRF
 				.authorizeHttpRequests(authz -> authz
-						.requestMatchers("/authenticate", "/register", "/public/**", "/test-email",
-								"/api/account/register","/api/account/login", "/api/account/delete/by-username", "/api/account/get-all",
-								"/api/account/update-dob", "/api/account/authenticate",
+						.requestMatchers("/authenticate", "/register", "/public/**", "/test-email", "/actuator/**",
+								"/api/account/register", "/api/account/login", "/api/account/delete/by-username",
+								"/api/account/get-all", "/api/account/update-dob", "/api/account/authenticate",
 								"/api/account/user/{username}/role", "/api/account/register", "/api/account/verify",
 								"/api/account/resend-verification", "/api/account/authenticate", "/api/seller/product",
-								"/api/seller/{productID}", "/actuator/** " , "/api/account/**")
+								"/api/seller/{productID}", "/actuator/** ", "/api/account/**")
 						.permitAll() // Allow access to specified endpoints
 						.requestMatchers("api/admin/**").hasRole("ADMIN").requestMatchers("/api/seller/**")
 						.hasRole("SELLER").anyRequest().authenticated())
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS) 
-				).addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
 		return http.build();
 	}
