@@ -1,6 +1,9 @@
 package com.at.t.eCommerce.model;
 
 import java.time.LocalDate;
+
+import com.at.t.eCommerce.boundedcontext.order.adapters.persistence.OrderModel;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;

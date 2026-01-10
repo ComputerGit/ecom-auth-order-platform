@@ -1,4 +1,6 @@
-package com.at.t.eCommerce.model;
+package com.at.t.eCommerce.boundedcontext.order.adapters.persistence;
+
+import com.at.t.eCommerce.model.ProductModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

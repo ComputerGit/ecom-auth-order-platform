@@ -1,7 +1,11 @@
-package com.at.t.eCommerce.model;
+package com.at.t.eCommerce.boundedcontext.order.adapters.persistence;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import com.at.t.eCommerce.model.CoreUser;
+import com.at.t.eCommerce.model.PaymentModel;
+import com.at.t.eCommerce.model.ShipmentModel;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

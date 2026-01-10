@@ -3,6 +3,8 @@ package com.at.t.eCommerce.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.at.t.eCommerce.boundedcontext.order.adapters.persistence.OrderItemModel;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
