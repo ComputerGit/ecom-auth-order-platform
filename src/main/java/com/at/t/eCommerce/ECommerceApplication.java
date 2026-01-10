@@ -11,8 +11,8 @@ import com.at.t.eCommerce.config.JWTProperties;
 
 @SpringBootApplication
 @EnableConfigurationProperties(JWTProperties.class)
-@EnableJpaRepositories(basePackages = "com.at.t.eCommerce.repo")
-@EntityScan(basePackages = "com.at.t.eCommerce.model")
+@EntityScan("com.at.t.eCommerce")
+@EnableJpaRepositories("com.at.t.eCommerce")
 public class ECommerceApplication {
 
 	public static void main(String[] args) {
