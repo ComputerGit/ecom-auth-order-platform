@@ -21,9 +21,9 @@ public class OrderId {
 	public static OrderId of(String value) {
 		return new OrderId(value);
 	}
-
-	public String value() {
-		return value;
+	
+	public String getValue() {
+	    return value;
 	}
 
 	@Override

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ecommerce_test
+    username: postgres
+    password: Rahul@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+jwt:
+  access-token-expiration: 3600000
+  refresh-token-expiration: 86400000
+  secret: test-secret-key

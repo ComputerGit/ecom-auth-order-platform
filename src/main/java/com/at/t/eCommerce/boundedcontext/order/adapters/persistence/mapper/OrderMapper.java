@@ -13,7 +13,7 @@ public class OrderMapper {
     // Domain → JPA
     public static OrderModel toEntity(Order domain) {
         OrderModel m = new OrderModel();
-        m.setOrderId(domain.getOrderId().value());   // ULID
+        m.setOrderId(domain.getOrderId().getValue());   // ULID
         m.setUserId(domain.getUserId());
         m.setOrderStatus(OrderModel.OrderStatus.valueOf(domain.getStatus().name()));
         m.setTotalAmount(domain.getTotal().doubleValue());
