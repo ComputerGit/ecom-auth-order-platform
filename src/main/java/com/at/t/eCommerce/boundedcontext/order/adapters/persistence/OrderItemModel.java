@@ -1,7 +1,5 @@
 package com.at.t.eCommerce.boundedcontext.order.adapters.persistence;
 
-import com.at.t.eCommerce.model.ProductModel;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,8 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,31 +20,30 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OrderItemModel {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	  @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", nullable = false)
-    @NotNull
-    private OrderModel order;
+	    @ManyToOne(fetch = FetchType.LAZY)
+	    @JoinColumn(name = "order_id", nullable = false)
+	    private OrderModel order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    @NotNull
-    private ProductModel product;
+	    // 🔑 Cross-service ID (ULID / Snowflake)
+	    @Column(name = "product_id", nullable = false, length = 36)
+	    private String productId;
 
-    @Min(1)
-    @Column(nullable = false)
-    @NotNull
-    private Integer quantity;
+	    // 🧾 Snapshot fields
+	    @Column(nullable = false)
+	    private String productName;
 
-    @Column(nullable = false)
-    @NotNull
-    private Double price;
+	    @Column(nullable = false)
+	    private Double price;
 
-    // Additional calculated field for convenience
-    public Double getTotalPrice() {
-        return this.price * this.quantity;
-    }
+	    @Column(nullable = false)
+	    private Integer quantity;
+    
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumn(name = "product_id", nullable = false)
+//  @NotNull
+//  private ProductModel product;
 }
