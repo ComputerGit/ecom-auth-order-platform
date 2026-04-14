@@ -33,43 +33,30 @@ import lombok.Setter;
 public class OrderModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "order_id", length = 36)
+    private String orderId;     // ULID from domain
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id" , nullable = false)
-    @NotNull
-    private CoreUser user;
+    @Column(name = "user_id", nullable = false, length = 36)
+    private String userId;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private OrderStatus orderStatus;
 
-    @NotNull
-    @Column(nullable = false)
     private Double totalAmount;
 
-    @NotNull
-    @Column(nullable = false)
     private LocalDateTime createdAt;
-
-    @NotNull
-    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    public enum OrderStatus {
-        PENDING, PROCESSING, COMPLETED, CANCELED
-    }
-    
     @OneToMany(mappedBy = "order" ,fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<OrderItemModel> orderItems;
+
+    public enum OrderStatus { PENDING, PROCESSING, COMPLETED, CANCELED }
     
-    @OneToMany(mappedBy = "order" ,fetch = FetchType.LAZY , cascade = CascadeType.ALL)
-    private List<PaymentModel> payments;
-    
-    @OneToMany(mappedBy = "order" ,fetch = FetchType.LAZY , cascade = CascadeType.ALL)
-    private List<ShipmentModel> shipments;
+//    @OneToMany(mappedBy = "order" ,fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+//    private List<PaymentModel> payments;
+//    
+//    @OneToMany(mappedBy = "order" ,fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+//    private List<ShipmentModel> shipments;
     
     
 }
