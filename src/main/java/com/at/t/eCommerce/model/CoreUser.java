@@ -109,40 +109,6 @@ public class CoreUser {
     
     @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL , fetch = FetchType.LAZY)
     private UserAuthMeta userAuthMeta;
-    
-    
-    
-
-	
-//	@Embedded
-//	@AttributeOverrides({ @AttributeOverride(name = "dno", column = @Column(name = "door_no")),
-//			@AttributeOverride(name = "street", column = @Column(name = "resident_street")),
-//			@AttributeOverride(name = "city", column = @Column(name = "resident_city")),
-//			@AttributeOverride(name = "state", column = @Column(name = "resident_state")),
-//			@AttributeOverride(name = "country", column = @Column(name = "resident_country")),
-//			@AttributeOverride(name = "pincode", column = @Column(name = "resident_pincode")) })
-//	private Address address;
-	
-//	@OneToOne(mappedBy = "user" , cascade = CascadeType.ALL  , fetch = FetchType.LAZY)
-//	private CartModel activeCart;
-//
-//	@OneToMany(mappedBy = "user" , fetch = FetchType.LAZY ,cascade = CascadeType.ALL)
-//	private List<AuditModel> auditLogs;
-//	 
-//	@OneToMany(mappedBy = "createdBy" , fetch = FetchType.LAZY , cascade = CascadeType.ALL ) 
-//	private List<DiscountModel> createdDiscounts ;
-//	
-//	@OneToMany(mappedBy = "user" , fetch = FetchType.LAZY , cascade = CascadeType.ALL)
-//	private List<NotificationModel> notifications;
-//	
-//	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<OrderModel> orders;
-//	
-//	@OneToMany(mappedBy = "user" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<ReviewModel> reviews;
-//	
-//	@OneToMany(mappedBy = "user" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	private List<WishListModel> wishlist;
 	
 
 }
